@@ -3,7 +3,10 @@
 <%= gravatar_for @user, size: 200 %>
 
 <p><%= link_to "Edit Profile", edit_user_path(@user) %></p>
-<p><%= link_to 'Sign Out', logout_path, method: :delete %></p>
+
+<% if logged_in? && current_user == @user %>
+  <p><%= link_to 'Sign Out', logout_path, method: :delete %></p>
+<% end %>
 
 <h1>Articles</h1>
 
