@@ -2,4 +2,6 @@
 
 <%= render 'article' %>
 
-<%= link_to 'Create new article', new_article_path %>
+<% if logged_in? %>
+  <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
+<% end %>  
