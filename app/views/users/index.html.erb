@@ -5,10 +5,13 @@
     <p>Username : <%= link_to user.username, user %></p>
     <p>Email : <%= user.email %></p>
     <p>Posted <%= user.articles.length %> articles</p>
-    <p>Joined <%= time_ago_in_words(user.created_at) %></p>
+    <p>Joined <%= time_ago_in_words(user.created_at) %> ago</p>
     <p> 
-      <%= link_to "View Profile", user %> 
-      <%= link_to "Edit Profile", edit_user_path(user) %> 
+      <%= link_to "View Profile", user %> |
+      <% if current_user.admin? %>
+        <%= link_to "Edit Profile", edit_user_path(user) %> |
+        <%= link_to "Delete Profile", user_path(user), method: :delete, data: {confirm: "Are you sure ?"} %>
+      <% end %>
     </p>
     <br>
 <% end %>
