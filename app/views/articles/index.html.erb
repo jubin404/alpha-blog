@@ -3,5 +3,6 @@
 <%= render 'article' %>
 
 <% if logged_in? %>
+  <%= link_to "Go to profile", user_path(current_user) %> |
   <%= link_to "Create new article", new_article_path %>
 <% end %>  
