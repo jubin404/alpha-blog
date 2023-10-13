@@ -14,6 +14,13 @@
   </p>
 
   <p>
+    <%= f.label :category %>
+    (optional)
+  </p>
+  <%= f.collection_select(:category_ids, Category.all, :id, :name, 
+  { multiple: true, size: 3, class: "custom-select shadow rounded" }) %>
+
+  <p>
     <%= f.submit %>
   </p>
 
