@@ -4,5 +4,9 @@
 
 <% if logged_in? %>
   <%= link_to "Go to profile", user_path(current_user) %> |
+  <%= link_to "Go to categories", categories_path %> |
   <%= link_to "Create new article", new_article_path %>
+  <% if current_user.admin? %>
+   | <%= link_to "Create new category", new_category_path %>
+  <% end %>
 <% end %>  
