@@ -1,0 +1,7 @@
+<h1>Categories</h1>
+
+<% @categories.each do |category| %>
+  <h3 "><%= link_to category.name, category_path(category), class: "text-success" %></h5>
+  Created <%= time_ago_in_words(category.created_at) %> ago, 
+  edited <%= time_ago_in_words(category.updated_at) %> ago
+<% end %>
