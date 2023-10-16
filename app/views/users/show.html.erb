@@ -1,4 +1,4 @@
-<h1><%= "(admin)" if current_user.admin? %> <%= @user.username %>'s Profile</h1>
+<h1><%= "(admin)" if current_user&.admin? %> <%= @user.username %>'s Profile</h1>
 
 <%= gravatar_for @user, size: 200 %>
 
