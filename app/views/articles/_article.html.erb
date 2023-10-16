@@ -4,6 +4,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>User</th>
+      <th>Category</th>
       <th colspan = '3'>Actions</th>
     </tr>
   </thead>
@@ -15,6 +16,11 @@
         <td><%= article.description %></td>
         <% if article.user %>
           <td><%= link_to article.user.username, article.user %></td>
+        <% end %>
+        <% if article.categories.any? %>
+          <td><%= render article.categories %></td>
+        <% else %>
+          <td> -------- </td>
         <% end %>
         <td><%= link_to 'Show', article_path(article) %></td>
         <% if logged_in? && (current_user == @user || current_user.admin?) %>
